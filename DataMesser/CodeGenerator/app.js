@@ -2,7 +2,7 @@ var express = require('express'),
     app = express(),//Try Again
     engines = require('consolidate'),//why
     MongoClient = require('mongodb').MongoClient,
-    assert = require('assert');
+    assert = require('assert');//Error Handle
 
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
