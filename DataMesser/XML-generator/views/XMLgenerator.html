@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+body { font-family: 'Helvetica', 'Arial', sans-serif; }
+</style>
+</head>
+<body>
+<!--h1>Testing XML</h1-->
+<p>&lt?xml version="1.0" encoding="UTF-8"?&gt</p>
+<p>&ltschema&gt</p>
+{% for testAuto in testAuto %}
+  <p>
+    <p>    &ltcolumn comment="" default="" key="false" label="{{testAuto.Lameman}}"
+        length="-1" nullable="true"
+        originalDbColumnName="{{testAuto.Lameman}}" originalLength="-1"
+        pattern="" precision="-1" talendType="id_String" type=""/&gt</p>
+  </P>
+{% else %}
+  <p5>MongoDB services is not Reachable at the Moment. </p5>
+{% endfor %}
+
+<p>&lt/schema&gt</p>
+</body>
+</html>

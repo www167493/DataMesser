@@ -1,0 +1,18 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+body { font-family: 'Helvetica', 'Arial', sans-serif; }
+</style>
+</head>
+<body>
+<h1>Talend Log</h1>
+{% for essential in essential %}
+  <li>[{{ essential.moment}}], <strong>Message: </strong>{{essential.message }}</a></li>
+{% else %}
+  <p5>MongoDB services is not Reachable at the Moment. </p5>
+{% endfor %}
+
+<p>For more information, Check out the log database</p>
+</body>
+</html>

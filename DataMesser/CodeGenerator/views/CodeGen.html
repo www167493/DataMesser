@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+body { font-family: 'Helvetica', 'Arial', sans-serif; }
+</style>
+</head>
+<body>
+  <p>db.getCollection('FullSample2').find().forEach(function(r){</p>
+  <p>var obj1 = {};</p>
+  <p>var origin = "FGDaily";</p>
+{% for MISMO_Path in MISMO_Path %}
+  <p>if(r.{{MISMO_Path.MISMO.INFO.Source_Column}} !== undefined){</p>
+  <p>      obj1["{{MISMO_Path.MISMO.INFO.Xpath}}"] = { {{MISMO_Path.MISMO.INFO.Source_Column}}:{Value: r.{{MISMO_Path.MISMO.INFO.Source_Column}}}, Extension:{History:[{Value: r.{{MISMO_Path.MISMO.INFO.Source_Column}}, Source: origin,  LoatModDate: ISODate()}]}};</p>
+  <p>      db.FullSample_Test.update({KeyID: r.LoanNumber1},{$set: obj1});</p>
+  <p>}</p>
+{% else %}
+  <p5>MongoDB services is not Reachable at the Moment. </p5>
+{% endfor %}
+<p>})</p>
+</body>
+</html>

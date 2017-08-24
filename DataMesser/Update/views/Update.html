@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+body { font-family: 'Helvetica', 'Arial', sans-serif; }
+</style>
+</head>
+<body>
+  <p>db.getCollection('FullSampleInter').find({}).forEach(function(r){</p>
+  <p>db.FullSample_Test.find({"KeyID" : r.LoanNumber1}).forEach(function(q){</p>
+  <p>var origin = "FGDaily";</p>
+  <p>var PrecedenceX = 45;</p>
+  <p>var len = 23;</p>
+{% for MISMO_Path in MISMO_Path %}
+  <p>if(r.{{MISMO_Path.MISMO.INFO.Source_Column}} !== undefined){</p>
+    <p>if(String(r.{{MISMO_Path.MISMO.INFO.Source_Column}}) !== String(q.{{MISMO_Path.MISMO.INFO.Xpath}}.{{MISMO_Path.MISMO.INFO.Source_Column}}.Value)){</p>
+      <p>len = q.{{MISMO_Path.MISMO.INFO.Xpath}}.Extension.History.length;</P>
+      <p>switch(q.{{MISMO_Path.MISMO.INFO.Xpath}}.Extension.History[len-1].Source){</p>
+        <p>case 'FGDaily':</p>
+        <p>PrecedenceX = {{MISMO_Path.MISMO.INFO.Precedence}};</p>
+        <p>break;</p>
+        <p>}</p>
+        <p>if(PrecedenceX >= {{MISMO_Path.MISMO.INFO.Precedence}}){</p>
+          <p>q.{{MISMO_Path.MISMO.INFO.Xpath}}.Extension.History.splice(len+1,0,</P>
+            <p>{Value: r.{{MISMO_Path.MISMO.INFO.Source_Column}}, Source: origin, LoatModDate: ISODate()});</p>
+            <p>q.{{MISMO_Path.MISMO.INFO.Xpath}}.{{MISMO_Path.MISMO.INFO.Source_Column}} = {Value: r.{{MISMO_Path.MISMO.INFO.Source_Column}}};</p>
+        <p>}</p>
+    <p>}</P>
+  <p>}</p>
+{% else %}
+  <p5>MongoDB services is not Reachable at the Moment. </p5>
+{% endfor %}
+<p>db.FullSample_Test.save(q);});})</p>
+</body>
+</html>
