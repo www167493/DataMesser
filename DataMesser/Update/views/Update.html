@@ -8,7 +8,7 @@ body { font-family: 'Helvetica', 'Arial', sans-serif; }
 <body>
   <p>db.getCollection('FullSampleInter').find({}).forEach(function(r){</p>
   <p>db.FullSample_Test.find({"KeyID" : r.LoanNumber1}).forEach(function(q){</p>
-  <p>var origin = "FGDaily";</p>
+  <p>var origin = "Testable";</p>
   <p>var PrecedenceX = 45;</p>
   <p>var len = 23;</p>
 {% for MISMO_Path in MISMO_Path %}
@@ -16,7 +16,7 @@ body { font-family: 'Helvetica', 'Arial', sans-serif; }
     <p>if(String(r.{{MISMO_Path.MISMO.INFO.Source_Column}}) !== String(q.{{MISMO_Path.MISMO.INFO.Xpath}}.{{MISMO_Path.MISMO.INFO.Source_Column}}.Value)){</p>
       <p>len = q.{{MISMO_Path.MISMO.INFO.Xpath}}.Extension.History.length;</P>
       <p>switch(q.{{MISMO_Path.MISMO.INFO.Xpath}}.Extension.History[len-1].Source){</p>
-        <p>case 'FGDaily':</p>
+        <p>case 'Testable':</p>
         <p>PrecedenceX = {{MISMO_Path.MISMO.INFO.Precedence}};</p>
         <p>break;</p>
         <p>}</p>

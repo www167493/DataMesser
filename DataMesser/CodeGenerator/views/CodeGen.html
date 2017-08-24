@@ -8,7 +8,7 @@ body { font-family: 'Helvetica', 'Arial', sans-serif; }
 <body>
   <p>db.getCollection('FullSample2').find().forEach(function(r){</p>
   <p>var obj1 = {};</p>
-  <p>var origin = "FGDaily";</p>
+  <p>var origin = "Testable";</p>
 {% for MISMO_Path in MISMO_Path %}
   <p>if(r.{{MISMO_Path.MISMO.INFO.Source_Column}} !== undefined){</p>
   <p>      obj1["{{MISMO_Path.MISMO.INFO.Xpath}}"] = { {{MISMO_Path.MISMO.INFO.Source_Column}}:{Value: r.{{MISMO_Path.MISMO.INFO.Source_Column}}}, Extension:{History:[{Value: r.{{MISMO_Path.MISMO.INFO.Source_Column}}, Source: origin,  LoatModDate: ISODate()}]}};</p>
